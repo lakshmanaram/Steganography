@@ -1,3 +1,4 @@
+pkg load image;
 I = imread("image.jpg");
 X = I;
 X(:,:,3) = zeros(size(I,1),size(I,2));
@@ -28,3 +29,7 @@ subplot(3,3,8);
 imshow(Y1);
 subplot(3,3,9);
 imshow(Z1);
+subplot(3,3,4);
+imshow(im2bw(I));
+subplot(3,3,6);
+imshow(rgb2gray(I));

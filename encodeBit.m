@@ -1,4 +1,4 @@
-function [o,type] = getBit(a)
+function [o,type] = encodeBit(a)
 if(a(1))
 if(a(2))
 if(a(3))

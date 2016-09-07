@@ -1,0 +1,1 @@
+types = cumulateTypes(types);

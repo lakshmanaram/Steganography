@@ -1,4 +1,5 @@
 function [Ones,Zeros] = cumulateTypes()
+  global types;
   Ones = [types(1,4) types(1,[6:8])];
   Zeros = [types(1,[1:3]) types(1,5)];
   sumZeros = sum(Zeros);

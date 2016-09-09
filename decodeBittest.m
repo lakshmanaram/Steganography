@@ -1,4 +1,4 @@
-function a = decodeBit(b)
+function a = decodeBittest(b)
 global Ones;
 global Zeros;
 r = rand(1);
@@ -18,7 +18,7 @@ if(b)
       break
     endif
   endfor
-#  a = [1,1,1];
+  a = [1,1,1];
 else
   for i = 1:4
     if(r <= Zeros(i))
@@ -35,7 +35,7 @@ else
       break
     endif
   endfor
-#  a = [0,0,0];
+  a = [0,0,0];
 endif
 a = logical(a);
 end

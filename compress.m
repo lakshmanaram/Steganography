@@ -11,7 +11,7 @@ endfor
 disp("Processing done");
 Output = logical(Output);
 disp("Converted to logical values");
-imwrite(Output,"compressedImg","bmp");
+imwrite(Output,"Images/compressedImg","bmp");
 disp("Output saved as compressedImg.bmp");
 disp("Program paused. Press enter to continue");
 pause;

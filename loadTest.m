@@ -6,6 +6,6 @@ function [cover,text] = loadTest(i)
     fid = fopen("tests/south_dakota_message.txt");
     text = fgetl(fid);
     fclose(fid);
+    imshow(cover)
   endif
-  imshow(cover)
 end

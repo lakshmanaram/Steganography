@@ -1,6 +1,8 @@
-function [stegoImage] = encodeMessage(cover,message)
+function [stegoImage] = encodeMessage(cover,message,x0,mu)
   messageBits = getMessageBits(message);
-  x0 = 0.5;
-  mu = 3.3;
+
+  # shuffle the message bits according to the logistic mapping given by x0, mu
   shuffledMessage = message(logisticMap(x0,mu,size(message,2)))
-end
+  
+  
+  end

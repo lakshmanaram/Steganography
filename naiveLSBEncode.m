@@ -1,11 +1,11 @@
 function [stegoData success] = naiveLSBEncode(coverData,messageBits,l)
-  # cover_data should be a 1D matrix of bytes - 2D matrix(size,8)
+  # coverData should be a 1D matrix of bytes - 2D matrix(size,8)
   # l is the number of Least Significant Bits substituted
   
   totalBitsEncoded = size(coverData,1)*l;
   
   if size(messageBits,2) > totalBitsEncoded
-    disply("Message Overflow Error");
+    display("Message Overflow Error");
     success = 0;
   else
     filler = "1";

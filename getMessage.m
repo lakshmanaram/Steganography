@@ -10,7 +10,7 @@ function message = getMessage(messageBits)
   messageBits = reshape(messageBits,8,prod(size(messageBits))/8)';
   
   message = "";
-  for i = 1:size(messageBits,2)
+  for i = 1:size(messageBits,1)
     charvalue = bin2dec(messageBits(i,:));
     if (charvalue == 0) %null character
       break;

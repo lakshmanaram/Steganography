@@ -3,7 +3,7 @@ function message = getMessage(messageBits)
   fillerBits = "11111111";
   if mod(size(messageBits,2),8) != 0
     % adding extra filler bits to facilitate reshape
-    messageBits = [messageBits fillerBits(1:8-mod(size(messageBits,2),8))]  
+    messageBits = [messageBits fillerBits(1:8-mod(size(messageBits,2),8))];
     endif
   
   % reshapes the message and transposes to get the right format of bytes

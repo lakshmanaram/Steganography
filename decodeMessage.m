@@ -2,7 +2,7 @@ function message = decodeMessage(stegoImage,x0,mu)
   stegoData = stegoImage(:,:,1);
   stegoData = dec2bin(stegoData');
   
-  shuffledMessageBits = naiveLSBDecode(stegoData,2);
+  shuffledMessageBits = LSBDecode(stegoData,2);
   
   [sorted,indices] = sort(logisticMap(x0,mu,size(shuffledMessageBits,2)));
   

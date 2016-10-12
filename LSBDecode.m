@@ -11,16 +11,11 @@ function shuffledMessageBits = LSBDecode(stegoData,l)
     messageBits = [messageBits fillerBits(1:8-mod(size(messageBits,2),8))];
     endif
   
+  % encode messageSize in the file header.
+  global messageSize;
+  shuffledMessageBits = messageBits(1,1:messageSize);
+  
   % reshapes the message and transposes to get the right format of bytes
   messageBits = reshape(messageBits,8,prod(size(messageBits))/8)';
-  
-  shuffledMessageBits = "";
-  for i = 1:size(messageBits,1)
-    charvalue = bin2dec(messageBits(i,:));
-    if (charvalue == 0) %null character
-      break;
-      endif
-    shuffledMessageBits = strcat(shuffledMessageBits,messageBits(i,:));
-    endfor
     
 end

@@ -1,4 +1,4 @@
-function shuffledMessageBits = naiveLSBDecode(stegoData,l)
+function shuffledMessageBits = LSBDecode(stegoData,l)
   # stegoData should be a 1D matrix of bytes - 2D matrix(size,8)
   # l is the number of Least Significant Bits substituted
   

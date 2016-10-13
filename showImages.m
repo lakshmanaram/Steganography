@@ -1,5 +1,5 @@
 function showImages(cover,stego)
-   subplot(2,1,1);
+   subplot(1,2,1);
    imshow(cover);
-   subplot(2,1,2);
+   subplot(1,2,2);
    imshow(stego);

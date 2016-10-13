@@ -24,9 +24,4 @@ function stegoImage = encodeMessage(cover,message,x0,mu)
   stegoNaive = stegoImage;
   stegoNaive(:,:,1) = reshape(bin2dec(stegoNaiveData),size(x,2),size(x,1))';
   
-  
-  imwrite(stegoImage,"tests/stegoImage","bmp");
-  display("Message encoded");
-  display("Steganography Image is stored in the tests folder");
-  
 end

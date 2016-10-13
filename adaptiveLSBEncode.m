@@ -12,7 +12,9 @@ function [stegoData,remainingMessageBits] = adaptiveLSBEncode(coverData,messageB
   
   % fixes underflow
   filler = "1";
-  messageBits = [messageBits repmat(filler,1,l-mod(size(messageBits,2),l))];
+  if mod(size(messageBits,2),l) != 0
+    messageBits = [messageBits repmat(filler,1,l-mod(size(messageBits,2),l))];
+    endif
   messageRows = size(messageBits,2)/l;
   messageBits = reshape(messageBits,l,messageRows)';
   
@@ -29,7 +31,7 @@ function [stegoData,remainingMessageBits] = adaptiveLSBEncode(coverData,messageB
   stegoData1(1:messageRows,:) = dec2bin(bitor(bitand(bin2dec(coverData(1:messageRows,:)),256-2^l),bin2dec(messageBits)),8);
   stegoData2(1:messageRows,:) = dec2bin(max([zeros(messageRows,1) bitor(bitand(bin2dec(coverData(1:messageRows,:)),256-2^l),bin2dec(messageBits))-2^l]')',8);
   for i = 1:messageRows
-    if abs(bin2dec(stegoData1(i,:)) - bin2dec(coverData(i,:))) <= abs(bin2dec(stegoData2(i,:))-bin2dec(coverData(i,:)))
+    if abs(bin2dec(stegoData1(i,:))-bin2dec(coverData(i,:))) <= abs(bin2dec(stegoData2(i,:))-bin2dec(coverData(i,:)))
       stegoData(i,:) = stegoData1(i,:);
       else
       stegoData(i,:) = stegoData2(i,:);

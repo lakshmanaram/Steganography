@@ -1,17 +1,19 @@
 function stegoImage = encodeMessage(cover,message,x0,mu)
   messageBits = getMessageBits(message);
-  global messageSize = size(messageBits,2);
+  global messageSize;
+  messageSize = prod(size(messageBits));
   
   % shuffle the message bits according to the logistic mapping given by x0, mu
-  shuffledMessageBits = messageBits(logisticMap(x0,mu,size(messageBits,2)));
+  shuffledMessageBits = messageBits(logisticMap(x0,mu,messageSize));
   
   % to include the 0x00 byte at the end of the message
-  shuffledMessageBits = [shuffledMessageBits "00000000"];
+  % shuffledMessageBits = [shuffledMessageBits "00000000"]
   
   x = cover(:,:,1);
   coverData = dec2bin(x');
   % TODO split into 64 cells and call naiveLSBEncode
   [stegoData,remainingMessageBits] = adaptiveLSBEncode(coverData, shuffledMessageBits, 2);
+  remainingMessageBits
   
   stegoImage = cover;
   

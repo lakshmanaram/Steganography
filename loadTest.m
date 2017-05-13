@@ -7,5 +7,12 @@ function [cover,text] = loadTest(i)
     text = fgetl(fid);
     fclose(fid);
     imshow(cover)
-  endif
+    else
+    display("Laoding Tokyo Image");
+    cover = imread("tests/Tokyo.jpg");
+    fid = fopen("tests/Tokyo.txt");
+    text = fgetl(fid);
+    fclose(fid);
+    imshow(cover)
+    endif
 end
